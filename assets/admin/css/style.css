@@ -1,0 +1,31 @@
+.icon-sb {
+    width: 13px;
+}
+
+.modal .modal-dialog {
+    max-width: 1080px;
+}
+
+.form-job .modal .modal-dialog {
+    max-width: 1080px;
+}
+
+.form-job .modal-dialog .modal-content .modal-body .card-body .form .form-group{
+    margin-right: -14.75rem;
+    margin-left: -23.75rem;
+}
+
+.btn-detail{
+    color: #fff;
+    background-color: #4c92ff;
+    border-color: #4c92ff;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.btn-grey{
+    background-color: lightgrey;
+    border-color: lightgrey;
+}

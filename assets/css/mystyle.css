@@ -1,0 +1,58 @@
+.custom-titlefooter{
+padding-top: 10px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+    font-size: 14px;
+    margin-left: 10px;
+    list-style-type: circle;
+}
+
+div.disable-links {
+    pointer-events: none;
+}
+
+.btn.lolos{
+    background: #58D68D !important;
+}
+
+.btn.lolos::before{
+    background: #58D68D !important;
+}
+
+.btn.lolos:disabled{
+    opacity: 1;
+}
+
+.btn.gagal{
+    background: #FF5733 !important;
+}
+
+.btn.gagal::before{
+    background: #FF5733 !important;
+}
+
+.btn.gagal:disabled{
+    opacity: 1;
+}
+
+.btn_lengkapi {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.job-category-listing .single-listing .select-Categories .container input:checked ~ .checkmark {
+    background-color: #007bff;
+}
