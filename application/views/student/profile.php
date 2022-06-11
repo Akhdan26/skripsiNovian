@@ -17,6 +17,7 @@
                     <!-- <a href="<?= base_url('profile/ubahpassword'); ?>" class="btn btn-sm btn-block btn-primary"><i class="fa fa-lock"></i> Ubah Password</a> -->
                 </div>
                 <div class="col-md-10">
+
                     <table class="table">
                         <tr>
                             <th width="200">NIM</th>
@@ -94,17 +95,67 @@
                             <!-- <?php foreach ($sertif as $key => $data) { ?>
                                 <td><?= $data->nama_file ?></td>
                             <?php } ?> -->
-                            <td><span id="deskripsi"></span>
-                                <!-- <?= $data->nama_skill; ?> -->
-                                <?php
-                                if ($skill) :
-                                    foreach ($sertif as $key1 => $data) :
-                                ?>
-                                        - <?= $data->nama_file ?> <br>
-                                    <?php endforeach;
-                                else : ?>
-                                    No Skill Data
-                                <?php endif; ?>
+                            <td>
+                                <div class="row form-group">
+                                    <div class="col-md-1">
+                                        <div class="row">
+                                            <div class="col-9">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    Upload Certificate
+                                                </button>
+
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">You can upload more than one certificate file</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="<?= base_url('student/profile/sertifikat/') ?>" class="form" method="post" enctype="multipart/form-data">
+                                                                    <input type="hidden" name="id_mahasiswa" value="<?= $mahasiswa['id']; ?>">
+                                                                    <table class="table table-bordered table-striped" id="example1">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Nama File</th>
+                                                                                <th>Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <?php foreach ($sertif as $key => $data) { ?>
+                                                                                <tr>
+                                                                                    <td><input type="text" name="id_sertif" value="<?= $data->id_sertif ?>"><?= $data->nama_file ?></td>
+                                                                                    <td>
+                                                                                        <center>
+                                                                                            <a href="<?= base_url()?>assets/upload/sertif/<?= $data->nama_file?>" target="_blank" style="color: black;"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                                                            <a href="<?= site_url('student/profile/deleteSertifikat/' . $data->id_sertif) ?>" onclick="return confirm('Apakah Anda Yakin ?')" style="color: black;"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                                                        </center>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            <?php } ?>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <hr>
+                                                                    <div>
+                                                                        <label for="file">Upload File Baru</label>
+                                                                        <input type="file" name="files[]" id="sertifikat" class="form-control" multiple="multiple" required>
+                                                                        <?= form_error('sertifikat', '<small class="text-danger">', '</small>'); ?>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                                <?= form_close(); ?>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
 
                         </tr>
@@ -112,3 +163,34 @@
                     <a href="<?= base_url('student/profile/setting'); ?>" class="btn btn-sm btn-block btn-primary"><i class="fa fa-edit"></i> Edit Profile</a>
                 </div>
             </div>
+
+            <script src="<?= base_url('assets/js/'); ?>vendor/modernizr-3.5.0.min.js"></script>
+            <!-- Jquery, Popper, Bootstrap -->
+            <script src="<?= base_url('assets/js/'); ?>vendor/jquery-1.12.4.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>popper.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>bootstrap.min.js"></script>
+            <!-- Jquery Mobile Menu -->
+            <script src="<?= base_url('assets/js/'); ?>jquery.slicknav.min.js"></script>
+
+            <!-- Jquery Slick , Owl-Carousel Plugins -->
+            <script src="<?= base_url('assets/js/'); ?>owl.carousel.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>slick.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>price_rangs.js"></script>
+
+            <!-- One Page, Animated-HeadLin -->
+            <script src="<?= base_url('assets/js/'); ?>wow.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>animated.headline.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>jquery.magnific-popup.js"></script>
+
+            <!-- Scrollup, nice-select, sticky -->
+            <script src="<?= base_url('assets/js/'); ?>jquery.scrollUp.min.js"></script>
+            <!-- <script src="<?= base_url('assets/js/'); ?>jquery.nice-select.min.js"></script> -->
+            <script src="<?= base_url('assets/js/'); ?>jquery.sticky.js"></script>
+
+            <!-- contact js -->
+            <script src="<?= base_url('assets/js/'); ?>contact.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>jquery.form.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>jquery.validate.min.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>mail-script.js"></script>
+            <script src="<?= base_url('assets/js/'); ?>jquery.ajaxchimp.min.js"></script>

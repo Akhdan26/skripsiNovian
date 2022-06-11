@@ -182,14 +182,18 @@ class Profile extends CI_Controller
                 //echo json_encode($input_data);
             }
         }
+    }
 
-        // if ($this->form_validation->run() == false) {
-        //     //redirect(base_url("student/profile/setting"));
-        //     set_pesan('Error Form Validation.', 'student/profile/setting'.$userId);
-        //     //echo $this->input->post('resume');
-        // } else {
-
-        // }
+    public function deleteSertifikat($id_sertif)
+    {
+        $post = $this->input->post(null, TRUE);
+        $item = $this->Student->getSertifId($post['id_sertif'])->row();
+        $target_file = './assets/upload/sertif/' . $item->nama_file;
+        unlink($target_file);
+        
+        $where = array('id_sertif' => $id_sertif);
+        $this->Student->del('sertifikat', $where);
+        redirect('student/profile');
     }
 
     public function sertifikat()
@@ -207,7 +211,8 @@ class Profile extends CI_Controller
             $config['upload_path']          = '.\assets\upload\sertif';
             $config['allowed_types']        = 'gif|jpg|png|pdf|docs';
             $config['max_size']             = 5000;
-            $config['file_name'] = $_FILES['files']['name'][$i];
+            // $config['file_name'] = $_FILES['files']['name'][$i];
+            $config['file_name']            = $this->session->userdata('nim') . '-' . date('ymd') . '-' . substr(md5(rand()), 0, 10)[$i];
 
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -231,7 +236,7 @@ class Profile extends CI_Controller
                 redirect('student/profile');
             }
         } else {
-            $data = null;
+            $data = 'null';
             $this->Student->edit($post);
         }
     }

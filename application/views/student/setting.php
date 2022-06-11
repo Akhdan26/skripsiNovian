@@ -397,49 +397,7 @@
             </div>
 
             <!-- INI MULTIPLE  -->
-            <div class="row form-group">
-                <label class="col-md-3 text-md-right" for="sertifikat">Certificate</label>
-                <div class="col-md-1">
-                    <div class="row">
-
-                        <div class="col-9">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                Upload Certificate
-                            </button>
-
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">You can upload more than one certificate file</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="<?= base_url('student/profile/sertifikat/') ?>" class="form" method="post" enctype="multipart/form-data">
-                                                <?php foreach ($sertif as $key => $data) { ?>
-                                                    <ul>
-                                                        <li><a href="<?= base_url() ?>assets/upload/sertif/<?= $data->nama_file ?>">
-                                                                <p><?= $data->nama_file ?></p>
-                                                            </a></li>
-                                                    </ul>
-
-                                                <?php } ?>
-                                                <input type="file" name="files[]" id="sertifikat" multiple="multiple">
-                                                <?= form_error('sertifikat', '<small class="text-danger">', '</small>'); ?>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                            <?= form_close(); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--  -->
             <input data="<?= $mahasiswa['password'] ?>" type="hidden" id="password" name="password" class="form-control" placeholder="Password">
             <div class="row form-group">
                 <div class="col-md-9 offset-md-3">

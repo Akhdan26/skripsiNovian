@@ -24,6 +24,23 @@ class M_Student extends CI_Model
         return $query;
     }
 
+    public function getSertifId($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('sertifikat');
+        if ($id != null) {
+            $this->db->where('id_sertif', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function del($table, $where)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
     public function getSertif($id = null)
     {
         $this->db->select('*');
