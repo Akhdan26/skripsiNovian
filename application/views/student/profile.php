@@ -126,7 +126,7 @@
                                                                         <tbody>
                                                                             <?php foreach ($sertif as $key => $data) { ?>
                                                                                 <tr>
-                                                                                    <td><input type="text" name="id_sertif" value="<?= $data->id_sertif ?>"><?= $data->nama_file ?></td>
+                                                                                    <td><input type="hidden" name="id_sertif" value="<?= $data->id_sertif ?>"><?= $data->nama_file ?></td>
                                                                                     <td>
                                                                                         <center>
                                                                                             <a href="<?= base_url()?>assets/upload/sertif/<?= $data->nama_file?>" target="_blank" style="color: black;"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -141,6 +141,7 @@
                                                                     <div>
                                                                         <label for="file">Upload File Baru</label>
                                                                         <input type="file" name="files[]" id="sertifikat" class="form-control" multiple="multiple" required>
+                                                                        <small style="color: red;">*Format file must PDF</small>
                                                                         <?= form_error('sertifikat', '<small class="text-danger">', '</small>'); ?>
                                                                     </div>
                                                             </div>
